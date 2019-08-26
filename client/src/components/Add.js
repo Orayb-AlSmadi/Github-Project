@@ -21,6 +21,10 @@ class Search extends Component {
   handleClick = () => {
     console.log(this.state);
     this.props.AddRequest(this.state);
+    this.setState({
+      name: "",
+      language: ""
+    });
   };
 
   render() {
@@ -32,7 +36,7 @@ class Search extends Component {
             className="form-control"
             placeholder="Repo Title"
             id="name"
-            // value={this.state.search}
+            value={this.state.name}
             onChange={this.handleChangeName}
           />
           <input
@@ -40,7 +44,7 @@ class Search extends Component {
             className="form-control"
             placeholder="Repo Langauge"
             id="language"
-            // value={this.state.search}
+            value={this.state.language}
             onChange={this.handleChangeLang}
           />
           <select
