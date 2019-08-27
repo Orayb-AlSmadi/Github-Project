@@ -11,26 +11,6 @@ class mainApp extends Component {
     reposExist: false
   };
 
-  // axios
-  //   .put("https://reqres.in/api/users/2", {
-  //     name: "Atta Shah",
-  //     job: "MEAN Stack Developer"
-  //   })
-  //   .then(response => {
-  //     console.log(response.data);
-  //     this.setState({
-  //       githubData: response.data
-  //     });
-  //   });
-
-  // this.setState({
-  //   githubData: this.state.githubData.map((elem, index) => {
-  //     if (index === id) elem.private = !elem.private;
-  //     return elem;
-  //   })
-  // });
-  // console.log(this.state);
-
   changePrivate = id => {
     // console.log("id", id);
     // console.log(this.state.githubData);
@@ -41,22 +21,6 @@ class mainApp extends Component {
       });
     });
   };
-
-  // componentDidMount = () => {
-  //   let c = this.getData();
-  //   console.log(c);
-  //   if (this.getData() === [])
-  //     axios.get("http://localhost:9000/").then(responseJson => {
-  //       console.log(responseJson.data);
-  //       console.log("this.state");
-  //       this.setState({
-  //         githubData: responseJson.data,
-  //         UserFound: true,
-  //         reposExist: true
-  //       });
-  //     });
-  //   console.log("sync");
-  // };
 
   getData = () => {
     fetch("http://localhost:9000/Repos")
@@ -69,29 +33,29 @@ class mainApp extends Component {
             // console.log("this.state");
             this.setState({
               githubData: responseJson.data,
-              UserFound: true,
-              reposExist: true
+              UserFound: true
             });
           });
         } else {
           this.setState({
-            githubData: responseJson,
-            UserFound: true,
-            reposExist: true
+            githubData: responseJson
           });
         }
       });
   };
 
   AddRequest = s => {
-    // console.log(s);
-    let request = `http://localhost:9000/add`;
-    axios.post(request, s).then(response => {
-      // console.log(response.data);
-      this.setState({
-        githubData: response.data
+    debugger;
+    console.log(s);
+    if (s.name !== "" && s.language !== "" && s.ready === true) {
+      let request = `http://localhost:9000/add`;
+      axios.post(request, s).then(response => {
+        // console.log(response.data);
+        this.setState({
+          githubData: response.data
+        });
       });
-    });
+    } else alert("please fill the fields");
   };
 
   deleteRepo = id => {
@@ -118,7 +82,7 @@ class mainApp extends Component {
 
     return (
       <div className="container">
-        <h1>github API</h1>
+        <h1> Github </h1>
         <button className="btn btn-warning" onClick={this.getData}>
           {" "}
           Get The Data{" "}

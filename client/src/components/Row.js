@@ -15,7 +15,7 @@ class Row extends Component {
       <tr>
         <td> {this.props.id} </td>
         <td> {this.props.name}</td>
-        {this.props.private ? <td> private </td> : <td> public </td>}
+        {this.props.private ? <td> Private </td> : <td> Public </td>}
         {this.props.private ? (
           <td>
             {" "}
@@ -33,11 +33,11 @@ class Row extends Component {
               onChange={() => this.handleToggle(this.props.deleteId)}
               type="checkbox"
               aria-label="Checkbox for following text input"
-              checked={this.props.private}
+              defaultchecked={this.props.private}
             />{" "}
           </td>
         )}
-        {this.props.private ? <td> yes </td> : <td> no </td>}
+        {this.props.private ? <td> Yes </td> : <td> No </td>}
         <td> {this.props.lang} </td>
         <td>
           <Btn deleteId={this.props.deleteId} delete={this.props.delete} />

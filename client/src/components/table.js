@@ -8,12 +8,12 @@ class Table extends Component {
         <thead>
           <tr>
             <th scope="col">#of repos</th>
-            <th scope="col">name of the repo</th>
-            <th scope="col">repo state</th>
-            <th scope="col">check,private</th>
-            <th scope="col">private</th>
-            <th scope="col">language</th>
-            <th scope="col"> url </th>
+            <th scope="col">Name of the repo</th>
+            <th scope="col">Repo state</th>
+            <th scope="col">Check-privacy</th>
+            <th scope="col">Private</th>
+            <th scope="col">Language</th>
+            <th scope="col"> Delete </th>
           </tr>
         </thead>
 

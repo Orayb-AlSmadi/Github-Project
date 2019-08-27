@@ -8,7 +8,7 @@ class Search extends Component {
   };
 
   handleChangeLang = e => {
-    this.setState({ language: e.target.value });
+    this.setState({ language: e.target.value, ready: true });
   };
 
   handleChangeState = e => {
